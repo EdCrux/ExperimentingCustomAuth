@@ -2,7 +2,7 @@
 @import "bootstrap";
 
 
-.sign-up {
+.center {
   display:flex;
   flex-direction: column;
   align-items: center;
@@ -15,5 +15,5 @@
   min-height:50px;
   color:white;
   text-align:center;
-  vertical-align: middle;
+  line-height:5;
 }
