@@ -1,6 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy, :show]
   
+  def index
+    @users = User.all
+  end
+
   #GET /signup
   def new
     @user = User.new
@@ -8,6 +12,9 @@ class UsersController < ApplicationController
   
   #GET /users/1/edit
   def edit
+  end
+
+  def show
   end
 
 
@@ -36,6 +43,7 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:username, :email, :password)
   end
+
   def set_user
     @user = User.find(params[:id])
   end

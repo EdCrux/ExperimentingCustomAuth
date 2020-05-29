@@ -14,9 +14,9 @@
      <%= content_tag :p, msg, class:name %>
     <% end %>
 
-    
+
     <%= yield %>
-    <%= debug(params) if Rails.env.development? %>
+      <%= debug(params) if Rails.env.development? %>
     <%= render 'layouts/footer' %>
   </body>
 </html>
