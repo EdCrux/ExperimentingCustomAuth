@@ -4,28 +4,21 @@
   <h1 class="p-0">Articles</h1>
 </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @articles.each do |article| %>
-      <tr>
-        <td><%= article.title %></td>
-        <td><%= article.description %></td>
-        <td><%= link_to 'Show', article %></td>
-        <td><%= link_to 'Edit', edit_article_path(article) %></td>
-        <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
+   <% @articles.each do |article| %>
+        <h3>Title</h3>
+        <p><%= article.title %></p>
+        <h3>Description</h3>
+        <p><%= article.description %></p>
+        <br>
+        <div class="bg-primary container">
+          <small>Created by:  <%= article.user.username %></small><br>
+          <small>Created at:  <%= time_ago_in_words(article.created_at) %> ago</small><br>
+          <small>Last update: <%= time_ago_in_words(article.updated_at) %></small><br>
+        </div>
+        <br>
+        <%= link_to 'Show', article %>
+        <%= link_to 'Edit', edit_article_path(article) %>
+        <%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %>
+   <% end %>
 
 <%= link_to 'New Article', new_article_path %>
