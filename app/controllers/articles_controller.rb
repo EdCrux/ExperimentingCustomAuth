@@ -27,7 +27,7 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
-    @article.user = User.first
+    @article.user = current_user
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -75,7 +75,7 @@ class ArticlesController < ApplicationController
     end
 
     def require_same_user
-      unless current_user == @article.user
+      if current_user != @article.user
       flash[:danger] = "You can only edit or delete your own articles"
       redirect_to root_path
       end
