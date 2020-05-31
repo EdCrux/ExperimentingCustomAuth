@@ -16,3 +16,11 @@
   list-style: none;
   padding-left: 0;
 }
+
+.danger {
+  background-color: hsl(348, 100%, 61%);
+  width: 100%;
+  min-height:50px;
+  color: white;
+  line-height: 5;
+}
